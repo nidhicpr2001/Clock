@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <meta name="description" content="clock using html,css and js">
+    <style>
+        *,::after,::before{box-sizing: border-box;margin: 0;padding: 0;}
+        html{font-size: 15px;}
+        body{font-size: 16px;}
+    .wrap-1{  background: linear-gradient(to right, #b2c493, #eeec79); }
+    .container{max-width: 600px;margin: auto;display: grid;place-items:center;height: 100vh;}
+    .clock {
+    display: flex; 
+    align-items: center; /* Align vertically */
+    justify-content: center; /* Align horizontally */
+    background: linear-gradient(rgb(139, 136, 180), rgb(127, 211, 101));
+    padding: 20px; /* Adjust spacing */
+    border-radius: 10px; /* Optional styling */
+}
+
+    .row{display: grid;grid-template-columns: repeat(12,1fr);gap: 1rem;}
+    .col-12{grid-column:span 12;}
+    span{ font-size: 3rem; /* Correct font size */
+    color: rgb(88, 31, 69); /* Correct text color */
+    font-weight: bold;width: 76px;display: inline-block;text-align: center;padding: 23px;}
+    @media screen and (max-width:1200px){
+    html{font-size:14px;}
+    h2{ font-size: 62px;}
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap-1">
+        <h1 style="text-align: center;color: rgb(38, 24, 231);padding-top: 37px;"> Digital Clock</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"> 
+                <div class="clock">
+                <span id="h">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="s">00</span>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function time(){
+        let date=new Date();
+        let hour=date.getHours();
+        let min=date.getMinutes();
+        let sec=date.getSeconds();
+        let h;
+        // let m=document.querySelector('#min').innerHTML=min;
+        // let s=document.querySelector('#s').innerHTML=sec;
+        if(hour<10){
+           h= document.querySelector('#h').innerHTML="0"+ hour; 
+        }
+        else{
+            h= document.querySelector('#h').innerHTML= hour; 
+        }
+        if(min<10){
+            h= document.querySelector('#min').innerHTML="0"+ min; 
+        }
+        else{
+            h= document.querySelector('#min').innerHTML= min; 
+        }
+        if(sec<10){
+            h= document.querySelector('#s').innerHTML="0"+ sec; 
+        }
+        else{
+            h= document.querySelector('#s').innerHTML= sec; 
+        }
+        }
+        setInterval(time,1000)
+    </script>
+</body>
+</html>
